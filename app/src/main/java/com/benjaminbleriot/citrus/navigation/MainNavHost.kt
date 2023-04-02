@@ -9,9 +9,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.benjaminbleriot.citrus.history.HistoryScreen
+import com.benjaminbleriot.citrus.information.InformationScreen
 import com.benjaminbleriot.citrus.navigation.Screen.BottomNavBar.History
 import com.benjaminbleriot.citrus.navigation.Screen.BottomNavBar.Scanner
 import com.benjaminbleriot.citrus.navigation.Screen.BottomNavBar.Settings
+import com.benjaminbleriot.citrus.navigation.Screen.Information
 import com.benjaminbleriot.citrus.scanner.ScannerScreen
 import com.benjaminbleriot.citrus.settings.SettingsScreen
 
@@ -24,7 +26,7 @@ fun MainNavHost() {
     ) {
         NavHost(
             navController = navController,
-            startDestination = Scanner.route,
+            startDestination = Information.route,
             modifier = Modifier.padding(it)
         ) {
             composable(Scanner.route) {
@@ -35,6 +37,9 @@ fun MainNavHost() {
             }
             composable(History.route) {
                 HistoryScreen()
+            }
+            composable(Information.route) {
+                InformationScreen(navController)
             }
         }
     }

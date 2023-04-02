@@ -7,6 +7,8 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Screen(val route: String) {
+    object Information: Screen("Information")
+
     sealed class BottomNavBar(val route: String, val icon: ImageVector, val title: String) {
         object Scanner : BottomNavBar("Scanner", Icons.Outlined.QrCodeScanner, "Scanner")
         object Settings : BottomNavBar("Settings", Icons.Outlined.Settings, "Settings")
